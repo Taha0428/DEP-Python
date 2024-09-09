@@ -28,7 +28,6 @@ class RedBlueNimGame:
     def human_move(self):
         self.display_state()
 
-        # Ensure that only 1 or 2 marbles are taken
         while True:
             red_taken = int(input("Number of red marbles to take (1 or 2): "))
             blue_taken = int(input("Number of blue marbles to take (1 or 2): "))
@@ -69,7 +68,7 @@ class RedBlueNimGame:
 
         if is_maximizing:
             max_eval = -float('inf')
-            for red in range(0, 3):  # Computer can only take 1 or 2 marbles
+            for red in range(0, 3):  
                 for blue in range(0, 3):
                     if red == 0 and blue == 0:
                         continue
@@ -84,7 +83,7 @@ class RedBlueNimGame:
             return max_eval
         else:
             min_eval = float('inf')
-            for red in range(0, 3):  # Human can only take 1 or 2 marbles
+            for red in range(0, 3):  
                 for blue in range(0, 3):
                     if red == 0 and blue == 0:
                         continue
@@ -113,7 +112,6 @@ def play_game(num_red, num_blue, version, first_player, depth):
             game.computer_score += 1  # Increment computer score
 
         game.display_state()
-
     print("Game over!")
     print(f"Final Score - Human: {game.human_score}, Computer: {game.computer_score}")
     score = game.calculate_score()
@@ -127,6 +125,6 @@ if __name__ == "__main__":
     num_blue = int(input("Enter the number of blue marbles: "))
     version = input("Enter the game version (standard/misere): ").strip().lower()
     first_player = input("Who plays first (human/computer): ").strip().lower()
-    depth = 5  # Set depth for AI decision-making
+    depth = 5 
 
     play_game(num_red, num_blue, version, first_player, depth)
