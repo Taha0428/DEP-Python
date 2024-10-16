@@ -1,16 +1,14 @@
 import csv
 
-# Directly providing the path to tasks.csv in your Downloads folder
 FILENAME = r"C:\Users\Abdullah\Desktop\tasks.csv"
 
-# Function to load tasks from file
 def load_tasks():
     tasks = []
     try:
         with open(FILENAME, mode='r', newline='') as file:
             reader = csv.DictReader(file)
             for row in reader:
-                # Check if the row has the expected keys ('ID', 'Description', 'Status')
+               
                 if 'ID' in row and 'Description' in row and 'Status' in row:
                     row['ID'] = int(row['ID'])  # Convert ID to integer
                     tasks.append(row)
